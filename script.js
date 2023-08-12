@@ -236,7 +236,7 @@ const startTimer = function() {
 
     // When 0 Seconds Stop Timer Then Log Out The User
     if (time === 0) {
-      // logOut(); 
+      logOut(); 
       clearInterval(timer);
     }
 
@@ -330,6 +330,10 @@ btnLoan.addEventListener('click', e => {
       currentAccount.movements.push(amount); 
       currentAccount.movementsDates.push(new Date().toISOString()); 
       updateUI(currentAccount); 
+            
+      // Restart The Timer 
+      if (timer) clearInterval(timer); 
+      timer = startTimer(); 
     }, 2000); 
 
   } else {
